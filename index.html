@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        #boaImage {
+            width: 300px;
+            height: 400px;
+            transition: transform 0.5s;
+            cursor: pointer;
+        }
+
+        #caption {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+    </style>
+    <title>Boa Hancock</title>
+</head>
+<body>
+    <div class="container">
+        <img id="boaImage" src="Normal.jpg" alt="Boa Hancock">
+        <p id="caption">Why are you looking at me?</p>
+    </div>
+    <script>
+        const boaImage = document.getElementById('boaImage');
+        const caption = document.getElementById('caption');
+
+        boaImage.addEventListener('mouseover', function () {
+            boaImage.src = 'Blush.jpg';
+            const randomText = getRandomText();
+            caption.innerText = randomText;
+        });
+
+        boaImage.addEventListener('mouseout', function () {
+            boaImage.src = 'Normal.jpg';
+            caption.innerText = 'Why are you looking at me?';
+        });
+
+        function getRandomText() {
+            const texts = [
+                "Don't touch me, baka.",
+                "**Blush**",
+                "Why aren't you turning stone?",
+                "Why is my heart pounding?"
+            ];
+
+            const randomIndex = Math.floor(Math.random() * texts.length);
+            return texts[randomIndex];
+        }
+
+    </script>
+</body>
+</html>
